@@ -90,6 +90,8 @@ Tekkit is built and maintained by a small team of builders focused on quality, d
 
 Join the Tekkit community to stay updated, ask questions, and build alongside others on the same journey.
 
+<a href="https://t.me/harishkannanjs" target="_blank">Join the Community Now</a>
+
 Learning is faster when you’re not doing it alone.
 
 ---
