@@ -4,7 +4,7 @@
 
 Build Skills That Actually Ship — Learn, Build, and Grow in Tech.
 
-👉 [Explore Tekkit ↗](https://tekkit.netlify.app/)
+[Explore Tekkit ↗](https://tekkit.netlify.app/)
 
 </div>
 
@@ -90,7 +90,7 @@ Tekkit is built and maintained by a small team of builders focused on quality, d
 
 Join the Tekkit community to stay updated, ask questions, and build alongside others on the same journey.
 
-👉 [Join the Community ↗](https://t.me/harishkannanjs)
+[Join the Community ↗](https://t.me/harishkannanjs)
 
 Learning is faster when you’re not doing it alone.
 
