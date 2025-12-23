@@ -294,6 +294,28 @@
          font-display: swap;
          src: url(../../fonts/inter-900-italic.woff2) format("woff2");
       }
+
+      /* Mobile FAQ icon alignment fix */
+@media (max-width: 768px) {
+  .accordion-title-wrapper {
+    display: flex;
+    align-items: center;      /* Align icon with first line */
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .accordion-title-wrapper .faq__question {
+    margin: 0;
+    flex: 1;
+  }
+
+  .accordion-title-wrapper .brxe-icon {
+    flex-shrink: 0;           /* Prevent icon from wrapping down */
+    display: flex;
+    align-items: center;
+  }
+}
+
    </style>
    <link rel="stylesheet" id="bricks-child-css" href="../../css/style.css" media="all">
    <link rel="stylesheet" id="bricks-font-awesome-6-brands-css" href="../../css/font-awesome-6-brands-layer.min.css"
