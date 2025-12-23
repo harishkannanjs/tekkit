@@ -572,8 +572,7 @@
             margin-top: 30px;
          }
       }
-
-     /* ============================================
+/* ============================================
    MOBILE LAYOUT FIXES - COMPREHENSIVE
    ============================================ */
 
@@ -640,31 +639,52 @@
   
   #brxe-oidxox {
     max-width: 100% !important;
-    text-align: center;
     row-gap: 20px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
+  /* Title - Centered */
   #brxe-ucibfw {
     font-size: 28px !important;
-    text-align: center;
+    text-align: center !important;
+    width: 100%;
   }
   
+  /* Description - Centered */
   #brxe-ejpfci {
-    text-align: center;
+    text-align: center !important;
     font-size: 16px !important;
     line-height: 1.6;
+    width: 100%;
   }
   
+  /* Bullet Points Container - Left Aligned */
   #brxe-pranpd {
     flex-direction: column !important;
     gap: 16px !important;
-    align-items: center;
+    align-items: flex-start !important;
     width: 100%;
+    max-width: 300px;
+    align-self: center;
   }
   
+  /* Individual Bullet Points - Left Aligned */
   #brxe-uvsavq {
-    justify-content: center !important;
+    justify-content: flex-start !important;
     width: 100%;
+    text-align: left !important;
+  }
+  
+  /* Bullet Point Text - Left Aligned */
+  #brxe-riavox {
+    text-align: left !important;
+  }
+  
+  /* Icon Positioning */
+  #brxe-rptssa {
+    flex-shrink: 0;
   }
   
   /* Course Cards Section */
@@ -1002,8 +1022,7 @@
   #brxe-athgxf {
     padding: 30px 16px 20px !important;
   }
-}
-   </style>
+}</style>
 </head>
 
 <body
@@ -1215,7 +1234,7 @@
                   id="brxe-rwtdyq" data-img-light="images/tekkit_logo_light.png"
                   data-img-dark="images/Tekkit_Logo-removebg.png" decoding="async">
                <div id="brxe-mtqeyl" class="brxe-text-basic text">Unlock job-ready opportunities across software, AI,
-                  cloud, cybersecurity, and more. Whether you’re learning or hiring, Tekkit bridges the gap.</div>
+                  cloud, cybersecurity, and more. Whether you’re learning or hiring, <br>Tekkit bridges the gap.</div>
                <div id="brxe-gwdcrx" class="brxe-div">
                   <div id="brxe-lcwdva" class="brxe-div">
                      <div id="brxe-xwiiuc" class="brxe-div">
