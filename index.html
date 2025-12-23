@@ -601,13 +601,20 @@
   /* CTA Button */
   #brxe-ljpatt {
     margin-top: 16px !important;
-    width: 100%;
-    text-align: center;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
   }
   
-  #brxe-ljpatt.brxe-button {
-    font-size: 14px !important;
-    padding: 12px 24px !important;
+  #brxe-ljpatt i {
+    font-size: 14px;
   }
   
   /* Rating & Logo Section */
@@ -790,13 +797,24 @@
     line-height: 1.4;
   }
   
-  /* Buttons */
+  /* Buttons - Standardized CTA Style */
   #brxe-ahjqqh,
   #brxe-uqfbqa {
-    width: 100% !important;
-    text-align: center;
-    font-size: 15px !important;
-    padding: 12px 20px !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
+  }
+  
+  #brxe-ahjqqh i,
+  #brxe-uqfbqa i {
+    font-size: 14px;
   }
   
   /* Company Hiring Section */
@@ -831,8 +849,20 @@
   
   #brxe-bebney {
     margin-top: 24px;
-    font-size: 15px !important;
-    padding: 12px 24px !important;
+    width: auto !important;
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    border-radius: 999px !important;
+    white-space: nowrap;
+  }
+  
+  #brxe-bebney i {
+    font-size: 14px;
   }
   
   /* Footer Section */
@@ -989,11 +1019,24 @@
   
   /* Better button styling */
   .brxe-button {
-    display: inline-flex;
+    display: inline-flex !important;
     align-items: center;
     justify-content: center;
     gap: 8px;
     white-space: nowrap;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    padding: 10px 25px !important;
+    border-radius: 999px !important;
+  }
+  
+  .brxe-button i {
+    font-size: 14px;
+  }
+  
+  /* Specific overrides for form submit buttons */
+  #brxe-cquari button[type="submit"] {
+    width: 100% !important;
   }
   
   /* Card improvements */
