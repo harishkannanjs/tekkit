@@ -1,22 +1,33 @@
-import { db } from "../lib/firebaseAdmin.js";
+import { db } from "../../lib/firebaseAdmin.js";
 
-export default async function handler(req, res) {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.status(200).end();
+export async function handler(event) {
+  // Handle CORS
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Methods": "POST, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+      body: "",
+    };
   }
 
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Method not allowed" });
+  if (event.httpMethod !== "POST") {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ message: "Method not allowed" }),
+    };
   }
 
-  const { email } = req.body;
+  const { email } = JSON.parse(event.body || "{}");
 
   if (!email || !email.includes("@")) {
-    return res.status(400).json({ message: "Invalid email" });
+    return {
+      statusCode: 400,
+      body: JSON.stringify({ message: "Invalid email" }),
+    };
   }
 
   try {
@@ -27,7 +38,10 @@ export default async function handler(req, res) {
       .get();
 
     if (!existing.empty) {
-      return res.status(409).json({ message: "Email already subscribed" });
+      return {
+        statusCode: 409,
+        body: JSON.stringify({ message: "Email already subscribed" }),
+      };
     }
 
     await db.collection("subscribers").add({
@@ -36,9 +50,18 @@ export default async function handler(req, res) {
       source: "footer",
     });
 
-    return res.status(200).json({ message: "Subscribed successfully" });
+    return {
+      statusCode: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({ message: "Subscribed successfully" }),
+    };
   } catch (err) {
     console.error(err);
-    return res.status(500).json({ message: "Internal server error" });
+    return {
+      statusCode: 500,
+      body: JSON.stringify({ message: "Server error" }),
+    };
   }
 }
