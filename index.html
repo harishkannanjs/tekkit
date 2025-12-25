@@ -1100,10 +1100,10 @@
 
             #brxe-ufejoo .bricks-mobile-menu-wrapper {
                position: fixed;
-               top: 75px;
+               top: 105px;
                left: 0;
                width: 100vw;
-               height: calc(100vh - 75px);
+               height: calc(100vh - 105px);
                background-color: var(--background, #0a0a0a);
                z-index: 9999;
                text-align: left;
@@ -1111,8 +1111,27 @@
                overflow-y: auto;
             }
 
+            #brxe-ufejoo .brx-submenu-toggle button[aria-expanded="true"] svg {
+               transform: rotate(180deg);
+            }
+
+            #brxe-ufejoo .brx-submenu-toggle button svg {
+               transition: transform 0.3s ease;
+            }
+
             #brxe-jbeoix {
                display: none !important;
+            }
+
+            /* Fix header height and logo size to match courses.html */
+            #brxe-xsksih {
+               max-height: 105px !important;
+               padding-right: var(--padding-25);
+               padding-left: var(--padding-25);
+            }
+
+            #brxe-vqhxuh {
+               width: 150px !important;
             }
          }
       }
