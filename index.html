@@ -509,51 +509,51 @@
          }
    </style>
    <style>
-  .newsletter-popup {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-  }
+      .newsletter-popup {
+         position: fixed;
+         inset: 0;
+         background: rgba(0, 0, 0, 0.55);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         z-index: 9999;
+      }
 
-  .newsletter-popup.hidden {
-    display: none;
-  }
+      .newsletter-popup.hidden {
+         display: none;
+      }
 
-  .popup-box {
-    background: #0b0b0b;
-    border-radius: 12px;
-    padding: 24px 28px;
-    max-width: 360px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-  }
+      .popup-box {
+         background: #0b0b0b;
+         border-radius: 12px;
+         padding: 24px 28px;
+         max-width: 360px;
+         width: 90%;
+         text-align: center;
+         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+      }
 
-  .popup-box p {
-    margin-bottom: 18px;
-    font-size: 15px;
-    line-height: 1.5;
-  }
+      .popup-box p {
+         margin-bottom: 18px;
+         font-size: 15px;
+         line-height: 1.5;
+      }
 
-  .popup-box button {
-    padding: 8px 16px;
-    border-radius: 8px;
-    background: #22c55e;
-    border: none;
-    color: #000;
-    cursor: pointer;
-    font-weight: 600;
-  }
+      .popup-box button {
+         padding: 8px 16px;
+         border-radius: 8px;
+         background: #22c55e;
+         border: none;
+         color: #000;
+         cursor: pointer;
+         font-weight: 600;
+      }
 
-  .popup-box.error button {
-    background: #ef4444;
-    color: #fff;
-  }
-</style>
+      .popup-box.error button {
+         background: #ef4444;
+         color: #fff;
+      }
+   </style>
 
    <script async="" src="js/gtm.js"></script>
    <script defer="" data-domain="tekkit-v0.vercel.app" data-api="https://plausible.io/api/event" data-cfasync="false"
@@ -1516,21 +1516,21 @@
                      <div class="form-group submit-button-wrapper">
                         <button type="submit" class="bricks-button" id="newsletter-submit">
                            <span class="text">Subscribe</span>
-                           <span class="loading" hidden>
-                              <svg version="1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink">
-                                 <g stroke-linecap="round" stroke-width="1" stroke="currentColor" fill="none"
-                                    stroke-linejoin="round">
-                                    <path d="M0.927,10.199l2.787,4.151l3.205,-3.838"></path>
-                                    <path d="M23.5,14.5l-2.786,-4.15l-3.206,3.838"></path>
-                                    <path
-                                       d="M20.677,10.387c0.834,4.408 -2.273,8.729 -6.509,9.729c-2.954,0.699 -5.916,-0.238 -7.931,-2.224">
-                                    </path>
-                                    <path
-                                       d="M3.719,14.325c-1.314,-4.883 1.969,-9.675 6.538,-10.753c3.156,-0.747 6.316,0.372 8.324,2.641">
-                                    </path>
-                                 </g>
-                                 <path fill="none" d="M0,0h24v24h-24Z"></path>
+                           <span class="loading" style="display:none;>
+                              <svg version=" 1.1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                              xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <g stroke-linecap="round" stroke-width="1" stroke="currentColor" fill="none"
+                                 stroke-linejoin="round">
+                                 <path d="M0.927,10.199l2.787,4.151l3.205,-3.838"></path>
+                                 <path d="M23.5,14.5l-2.786,-4.15l-3.206,3.838"></path>
+                                 <path
+                                    d="M20.677,10.387c0.834,4.408 -2.273,8.729 -6.509,9.729c-2.954,0.699 -5.916,-0.238 -7.931,-2.224">
+                                 </path>
+                                 <path
+                                    d="M3.719,14.325c-1.314,-4.883 1.969,-9.675 6.538,-10.753c3.156,-0.747 6.316,0.372 8.324,2.641">
+                                 </path>
+                              </g>
+                              <path fill="none" d="M0,0h24v24h-24Z"></path>
                               </svg>
                            </span>
                         </button>
@@ -1652,80 +1652,78 @@
       });
    </script>
 
-  <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("brxe-cquari");
-    const submitBtn = document.getElementById("newsletter-submit");
-    const textEl = submitBtn.querySelector(".text");
-    const loaderEl = submitBtn.querySelector(".loading");
+   <script>
+      document.addEventListener("DOMContentLoaded", () => {
+         const form = document.getElementById("brxe-cquari");
+         const submitBtn = document.getElementById("newsletter-submit");
 
-    const popup = document.getElementById("newsletter-popup");
-    const popupMsg = document.getElementById("popup-message");
-    const popupClose = document.getElementById("popup-close");
+         const textEl = submitBtn.querySelector(".text");
+         const loaderEl = submitBtn.querySelector(".loading");
 
-    const emailInput = form.querySelector('input[type="email"]');
+         const emailInput = form.querySelector('input[type="email"]');
 
-    if (!form || !submitBtn || !emailInput) return;
+         if (!form || !submitBtn || !textEl || !loaderEl) return;
 
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
+         form.addEventListener("submit", async (e) => {
+            e.preventDefault();
 
-      const email = emailInput.value.trim();
-      if (!email) return showPopup("Please enter a valid email.", true);
+            const email = emailInput.value.trim();
+            if (!email) return;
 
-      setLoading(true);
+            setLoading(true);
 
-      try {
-        const res = await fetch(
-          "https://tekkit.netlify.app/.netlify/functions/newsletter-subscribe",
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ email }),
-          }
-        );
+            try {
+               const res = await fetch(
+                  "https://tekkit.netlify.app/.netlify/functions/newsletter-subscribe",
+                  {
+                     method: "POST",
+                     headers: { "Content-Type": "application/json" },
+                     body: JSON.stringify({ email }),
+                  }
+               );
 
-        const data = await res.json();
+               const data = await res.json();
 
-        if (!res.ok) {
-          throw new Error(data.message || "Subscription failed");
-        }
+               if (!res.ok) {
+                  throw new Error(data.message || "Failed");
+               }
 
-        emailInput.value = "";
-        showPopup("🎉 You’re successfully subscribed!");
-      } catch (err) {
-        showPopup(err.message || "Something went wrong", true);
-      } finally {
-        // 🔴 THIS FIXES THE STUCK LOADING STATE
-        setLoading(false);
-      }
-    });
+               emailInput.value = "";
+               showPopup("🎉 You’re successfully subscribed!");
+            } catch (err) {
+               showPopup(err.message || "Something went wrong", true);
+            } finally {
+               // 🔴 THIS NOW ALWAYS RUNS
+               setLoading(false);
+            }
+         });
 
-    popupClose.addEventListener("click", () => {
-      popup.classList.add("hidden");
-    });
+         function setLoading(isLoading) {
+            if (isLoading) {
+               submitBtn.disabled = true;
+               textEl.style.display = "none";
+               loaderEl.style.display = "inline-flex";
+            } else {
+               submitBtn.disabled = false;
+               loaderEl.style.display = "none";
+               textEl.style.display = "inline";
+            }
+         }
 
-    function setLoading(isLoading) {
-      submitBtn.disabled = isLoading;
-      textEl.hidden = isLoading;
-      loaderEl.hidden = !isLoading;
-    }
+         function showPopup(message, isError = false) {
+            alert(message); // you already have popup logic; keep yours if present
+         }
+      });
+   </script>
 
-    function showPopup(message, isError = false) {
-      popupMsg.textContent = message;
-      popup.querySelector(".popup-box").classList.toggle("error", isError);
-      popup.classList.remove("hidden");
-    }
-  });
-</script>
 
 
    <div id="newsletter-popup" class="newsletter-popup hidden">
-  <div class="popup-box">
-    <p id="popup-message"></p>
-    <button id="popup-close">OK</button>
-  </div>
-</div>
+      <div class="popup-box">
+         <p id="popup-message"></p>
+         <button id="popup-close">OK</button>
+      </div>
+   </div>
 
 
 </body>
