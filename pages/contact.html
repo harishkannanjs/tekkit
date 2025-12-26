@@ -400,6 +400,52 @@
 			src: url(../fonts/inter-900-italic.woff2) format("woff2");
 		}
 	</style>
+	<style>
+		.hidden {
+			display: none !important;
+		}
+
+		.newsletter-popup {
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.55);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 9999;
+		}
+
+		.popup-box {
+			background: #0b0b0b;
+			border-radius: 14px;
+			padding: 24px 28px;
+			max-width: 360px;
+			width: 90%;
+			text-align: center;
+			box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+		}
+
+		.popup-box p {
+			margin-bottom: 18px;
+			font-size: 15px;
+			line-height: 1.5;
+		}
+
+		.popup-box button {
+			padding: 8px 18px;
+			border-radius: 8px;
+			background: #22c55e;
+			border: none;
+			font-weight: 600;
+			cursor: pointer;
+		}
+
+		.popup-box.error button {
+			background: #ef4444;
+			color: #fff;
+		}
+	</style>
+
 	<link rel="stylesheet" id="bricks-child-css" href="../css/style.css" media="all">
 	<link rel="stylesheet" id="bricks-font-awesome-6-brands-css" href="../css/font-awesome-6-brands-layer.min.css"
 		media="all">
@@ -2071,72 +2117,14 @@
 			}
 		}
 	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", () => {
-			const form = document.getElementById("brxe-cquari");
-			const submitBtn = document.getElementById("newsletter-submit");
-			const messageEl = document.getElementById("newsletter-message");
-			const emailInput = form.querySelector('input[type="email"]');
+	<script src="../js/newsletter.js"></script>
 
-			if (!form || !submitBtn || !emailInput) return;
-
-			form.addEventListener("submit", async (e) => {
-				e.preventDefault(); // 🔴 REQUIRED
-
-				const email = emailInput.value.trim();
-
-				if (!email) {
-					showMessage("Please enter an email address.", "error");
-					return;
-				}
-
-				setLoading(true);
-
-				try {
-					const response = await fetch(
-						"https://tekkit.netlify.app/.netlify/functions/newsletter-subscribe",
-						{
-							method: "POST",
-							headers: {
-								"Content-Type": "application/json",
-							},
-							body: JSON.stringify({ email }),
-						}
-					);
-
-					const data = await response.json();
-
-					if (!response.ok) {
-						throw new Error(data.message || "Something went wrong");
-					}
-
-					showMessage("You’re subscribed 🎉", "success");
-					emailInput.value = "";
-				} catch (err) {
-					showMessage(err.message || "Subscription failed", "error");
-				} finally {
-					setLoading(false);
-				}
-			});
-
-			function setLoading(isLoading) {
-				submitBtn.disabled = isLoading;
-				submitBtn.style.opacity = isLoading ? "0.6" : "1";
-				submitBtn.querySelector(".text").textContent = isLoading
-					? "Subscribing..."
-					: "Subscribe";
-			}
-
-			function showMessage(text, type) {
-				if (!messageEl) return;
-
-				messageEl.textContent = text;
-				messageEl.style.color =
-					type === "success" ? "#22c55e" : "#ef4444";
-			}
-		});
-	</script>
-
+	<div id="newsletter-popup" class="newsletter-popup hidden">
+		<div class="popup-box">
+			<p id="popup-message"></p>
+			<button id="popup-close">OK</button>
+		</div>
+	</div>
 
 
 </body>
