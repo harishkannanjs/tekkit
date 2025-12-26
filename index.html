@@ -508,6 +508,53 @@
             }
          }
    </style>
+   <style>
+  .newsletter-popup {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+
+  .newsletter-popup.hidden {
+    display: none;
+  }
+
+  .popup-box {
+    background: #0b0b0b;
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 360px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+
+  .popup-box p {
+    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .popup-box button {
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #22c55e;
+    border: none;
+    color: #000;
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .popup-box.error button {
+    background: #ef4444;
+    color: #fff;
+  }
+</style>
+
    <script async="" src="js/gtm.js"></script>
    <script defer="" data-domain="tekkit-v0.vercel.app" data-api="https://plausible.io/api/event" data-cfasync="false"
       src="js/plausible.outbound-links.js" id="plausible-analytics-js"></script>
@@ -1606,71 +1653,81 @@
       });
    </script>
 
-   <script>
+  <script>
   document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("brxe-cquari");
     const submitBtn = document.getElementById("newsletter-submit");
-    const messageEl = document.getElementById("newsletter-message");
+    const textEl = submitBtn.querySelector(".text");
+    const loaderEl = submitBtn.querySelector(".loading");
+
+    const popup = document.getElementById("newsletter-popup");
+    const popupMsg = document.getElementById("popup-message");
+    const popupClose = document.getElementById("popup-close");
+
     const emailInput = form.querySelector('input[type="email"]');
 
     if (!form || !submitBtn || !emailInput) return;
 
     form.addEventListener("submit", async (e) => {
-      e.preventDefault(); // 🔴 REQUIRED
+      e.preventDefault();
 
       const email = emailInput.value.trim();
-
-      if (!email) {
-        showMessage("Please enter an email address.", "error");
-        return;
-      }
+      if (!email) return showPopup("Please enter a valid email.", true);
 
       setLoading(true);
 
       try {
-        const response = await fetch(
+        const res = await fetch(
           "https://tekkit.netlify.app/.netlify/functions/newsletter-subscribe",
           {
             method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
+            headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email }),
           }
         );
 
-        const data = await response.json();
+        const data = await res.json();
 
-        if (!response.ok) {
-          throw new Error(data.message || "Something went wrong");
+        if (!res.ok) {
+          throw new Error(data.message || "Subscription failed");
         }
 
-        showMessage("You’re subscribed 🎉", "success");
         emailInput.value = "";
+        showPopup("🎉 You’re successfully subscribed!");
       } catch (err) {
-        showMessage(err.message || "Subscription failed", "error");
+        showPopup(err.message || "Something went wrong", true);
       } finally {
+        // 🔴 THIS FIXES THE STUCK LOADING STATE
         setLoading(false);
       }
     });
 
+    popupClose.addEventListener("click", () => {
+      popup.classList.add("hidden");
+    });
+
     function setLoading(isLoading) {
       submitBtn.disabled = isLoading;
-      submitBtn.style.opacity = isLoading ? "0.6" : "1";
-      submitBtn.querySelector(".text").textContent = isLoading
-        ? "Subscribing..."
-        : "Subscribe";
+      textEl.hidden = isLoading;
+      loaderEl.hidden = !isLoading;
     }
 
-    function showMessage(text, type) {
-      if (!messageEl) return;
-
-      messageEl.textContent = text;
-      messageEl.style.color =
-        type === "success" ? "#22c55e" : "#ef4444";
+    function showPopup(message, isError = false) {
+      popupMsg.textContent = message;
+      popup.querySelector(".popup-box").classList.toggle("error", isError);
+      popup.classList.remove("hidden");
     }
   });
 </script>
+
+
+   <div id="newsletter-popup" class="newsletter-popup hidden">
+  <div class="popup-box">
+    <p id="popup-message"></p>
+    <button id="popup-close">OK</button>
+  </div>
+</div>
+
 
 </body>
 
