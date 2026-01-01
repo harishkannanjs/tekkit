@@ -329,6 +329,448 @@
       }
    </style>
    <style>
+      /* ================================
+   PAYMENT PROCESS SECTION (FINAL)
+================================ */
+
+      #payment-process-section {
+         padding-top: 200px;
+         padding-bottom: 200px;
+         font-size: 18px;
+         /* Desktop baseline like Pricing */
+      }
+
+      /* ---------------- Container ---------------- */
+
+      .payment-container {
+         background: #1a1a1a;
+         border-radius: 28px;
+         padding: 48px;
+         max-width: 1200px;
+         width: 100%;
+         border: 1px solid #2a2a2a;
+         box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+      }
+
+      /* ---------------- Grid Layout ---------------- */
+
+      .grid-layout {
+         display: grid;
+         grid-template-columns: 1.2fr 1fr;
+         gap: 48px;
+      }
+
+      /* ---------------- Instructions ---------------- */
+
+      .instructions-section {
+         background: #222222;
+         border-radius: 18px;
+         padding: 32px;
+         border: 1px solid #2d2d2d;
+         height: fit-content;
+      }
+
+      .instructions-section h2 {
+         font-size: 24px;
+         font-weight: 700;
+         margin-bottom: 24px;
+         color: #00ffaa;
+         letter-spacing: -0.5px;
+      }
+
+      .instructions-section ul {
+         list-style: none;
+         padding: 0;
+         margin: 0;
+      }
+
+      .instructions-section li {
+         padding-left: 28px;
+         margin-bottom: 18px;
+         line-height: 1.7;
+         color: #b4b4b4;
+         position: relative;
+         font-size: 16px;
+      }
+
+      .instructions-section li::before {
+         content: '•';
+         position: absolute;
+         left: 10px;
+         color: #00ffaa;
+         font-size: 22px;
+      }
+
+      /* ---------------- Controls Section ---------------- */
+
+      .controls-section {
+         display: flex;
+         flex-direction: column;
+         gap: 22px;
+      }
+
+      /* ---------------- Dropdowns ---------------- */
+
+      .dropdown-wrapper {
+         position: relative;
+      }
+
+      .dropdown-btn {
+         width: 100%;
+         padding: 18px 24px;
+         background: #222222;
+         border: 1px solid #3a3a3a;
+         border-radius: 14px;
+         color: #ffffff;
+         font-size: 17px;
+         font-weight: 500;
+         cursor: pointer;
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         transition: all 0.2s ease;
+      }
+
+      .dropdown-btn:hover,
+      .dropdown-btn.active {
+         background: #2a2a2a;
+         border-color: #00ffaa;
+      }
+
+      .dropdown-arrow {
+         width: 0;
+         height: 0;
+         border-left: 6px solid transparent;
+         border-right: 6px solid transparent;
+         border-top: 6px solid #00ffaa;
+         transition: transform 0.2s ease;
+      }
+
+      .dropdown-btn.active .dropdown-arrow {
+         transform: rotate(180deg);
+      }
+
+      .dropdown-menu {
+         position: absolute;
+         top: calc(100% + 10px);
+         left: 0;
+         right: 0;
+         background: #222222;
+         border: 1px solid #3a3a3a;
+         border-radius: 14px;
+         overflow: hidden;
+         display: none;
+         z-index: 100;
+         box-shadow: 0 12px 28px rgba(0, 0, 0, 0.6);
+      }
+
+      .dropdown-menu.show {
+         display: block;
+         animation: slideDown 0.2s ease;
+      }
+
+      .dropdown-option {
+         padding: 16px 24px;
+         cursor: pointer;
+         transition: background 0.15s ease;
+         color: #b4b4b4;
+         font-size: 16px;
+      }
+
+      .dropdown-option:hover {
+         background: #2a2a2a;
+         color: #00ffaa;
+      }
+
+      /* ---------------- Price Box ---------------- */
+
+      .price-box {
+         padding: 20px 24px;
+         background: #222222;
+         border: 1px solid #3a3a3a;
+         border-radius: 14px;
+         text-align: center;
+         color: #888888;
+         font-style: italic;
+         font-size: 16px;
+      }
+
+      .price-box.active {
+         color: #00ffaa;
+         font-style: normal;
+         font-weight: 700;
+         font-size: 22px;
+      }
+
+      /* ---------------- Button Grid ---------------- */
+
+      .button-grid {
+         display: grid;
+         grid-template-columns: 1fr 1fr;
+         gap: 14px;
+      }
+
+      /* ---------------- UPI Box ---------------- */
+
+      .upi-container {
+         display: flex;
+         align-items: center;
+         gap: 14px;
+         padding: 18px;
+         background: #222222;
+         border: 1px solid #3a3a3a;
+         border-radius: 14px;
+      }
+
+      .upi-text {
+         flex: 1;
+         color: #ffffff;
+         font-size: 16px;
+         font-weight: 600;
+         white-space: nowrap;
+         overflow: hidden;
+         text-overflow: ellipsis;
+      }
+
+      /* Copy Icon */
+
+      .copy-icon {
+         margin-left: auto;
+         width: 38px;
+         height: 38px;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         background: #1a1a1a;
+         border: 1px solid #333;
+         border-radius: 10px;
+         cursor: pointer;
+         position: relative;
+         transition: transform 0.18s ease, background 0.2s ease, box-shadow 0.2s ease;
+      }
+
+      .copy-icon:hover {
+         background: #262626;
+         transform: scale(1.1);
+         box-shadow: 0 6px 18px rgba(0, 255, 170, 0.25);
+      }
+
+      .copy-icon svg {
+         width: 18px;
+         height: 18px;
+         fill: #00ffaa;
+      }
+
+      /* Tooltip */
+
+      .copy-tooltip {
+         position: absolute;
+         bottom: calc(100% + 10px);
+         right: 0;
+         background: #00ffaa;
+         color: #0a0a0a;
+         padding: 6px 12px;
+         border-radius: 6px;
+         font-size: 12px;
+         font-weight: 600;
+         opacity: 0;
+         pointer-events: none;
+         transition: opacity 0.2s ease;
+      }
+
+      .copy-tooltip.show {
+         opacity: 1;
+      }
+
+      /* ---------------- Action Button ---------------- */
+
+      .action-btn {
+         padding: 18px 22px;
+         background: #222222;
+         border: 1px solid #3a3a3a;
+         border-radius: 14px;
+         color: #ffffff;
+         font-size: 16px;
+         font-weight: 600;
+         cursor: pointer;
+         transition: all 0.2s ease;
+      }
+
+      .action-btn:hover {
+         background: #2a2a2a;
+         border-color: #00ffaa;
+         color: #00ffaa;
+      }
+
+      /* ---------------- Telegram CTA ---------------- */
+
+      .telegram-btn {
+         grid-column: 1 / -1;
+         padding: 18px 36px;
+         background: linear-gradient(var(--accent), var(--accent-darker));
+         border-radius: 50px;
+         color: #ffffff;
+         font-size: 17px;
+         font-weight: 700;
+         text-align: center;
+         margin: 8px auto 0;
+         transition: transform 0.2s ease, box-shadow 0.2s ease;
+         display: block;
+      }
+
+      .telegram-btn:hover {
+         transform: translateY(-2px);
+         box-shadow: 0 10px 28px rgba(0, 255, 170, 0.35);
+      }
+
+      /* ---------------- Badge ---------------- */
+
+      .badge {
+         display: inline-block;
+         padding: 4px 12px;
+         background: rgba(0, 255, 170, 0.1);
+         color: #00ffaa;
+         border-radius: 6px;
+         font-size: 13px;
+         font-weight: 600;
+         margin-left: 8px;
+      }
+
+      /* ================================
+   RESPONSIVE (Mobile)
+================================ */
+
+      @media (max-width: 768px) {
+         #payment-process-section {
+            padding-top: 120px;
+            padding-bottom: 120px;
+            font-size: 16px;
+         }
+
+         .payment-container {
+            padding: 32px;
+            border-radius: 20px;
+         }
+
+         .grid-layout {
+            grid-template-columns: 1fr;
+            gap: 32px;
+         }
+
+         .instructions-section h2 {
+            font-size: 20px;
+         }
+
+         .instructions-section li {
+            font-size: 15px;
+         }
+
+         .dropdown-btn,
+         .action-btn {
+            padding: 16px 18px;
+            font-size: 16px;
+         }
+
+         .price-box.active {
+            font-size: 20px;
+         }
+      }
+
+      @media (max-width: 480px) {
+         .payment-container {
+            padding: 24px;
+         }
+
+         .controls-section {
+            gap: 18px;
+         }
+
+         .badge {
+            display: block;
+            margin: 6px 0 0;
+            width: fit-content;
+         }
+      }
+
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+         .payment-container {
+            padding: 24px;
+         }
+
+         .grid-layout {
+            grid-template-columns: 1fr;
+            gap: 24px;
+         }
+
+         .instructions-section {
+            padding: 20px;
+         }
+
+         .instructions-section h2 {
+            font-size: 18px;
+         }
+
+         .instructions-section li {
+            font-size: 14px;
+            margin-bottom: 12px;
+         }
+
+         .dropdown-btn,
+         .action-btn {
+            padding: 14px 16px;
+            font-size: 15px;
+         }
+
+         .telegram-btn {
+            padding: 16px;
+         }
+
+         .button-grid {
+            gap: 10px;
+         }
+      }
+
+      @media (max-width: 480px) {
+         body {
+            padding: 12px;
+         }
+
+         .payment-container {
+            padding: 20px;
+            border-radius: 16px;
+         }
+
+         .instructions-section {
+            padding: 16px;
+         }
+
+         .controls-section {
+            gap: 12px;
+         }
+
+         .dropdown-btn {
+            font-size: 14px;
+         }
+
+         .badge {
+            display: block;
+            margin-left: 0;
+            margin-top: 4px;
+            width: fit-content;
+         }
+      }
+
+      /* Tablet specific */
+      @media (min-width: 769px) and (max-width: 1024px) {
+         .grid-layout {
+            grid-template-columns: 1fr;
+            max-width: 700px;
+            margin: 0 auto;
+         }
+      }
+
       .hidden {
          display: none !important;
       }
@@ -595,52 +1037,307 @@
    <main id="brx-content">
       <section id="payment-process-section" class="brxe-section section-gap-below"
          style="padding-top: var(--padding-150);">
-         <div class="brxe-container">
-            <div class="payment-process-card">
-               <h2 class="brxe-heading title-h2" style="margin-bottom: 30px;">Payment Process</h2>
+         <div class="payment-container">
+            <div class="grid-layout">
+               <div class="instructions-section">
+                  <h2>Step by Step Instruction</h2>
+                  <ul>
+                     <li>Select your preferred payment method</li>
+                     <li>Choose the course you’re enrolling in</li>
+                     <li>Course price is auto-displayed based on your selection</li>
+                     <li>Copy the UPI ID or download the QR code to proceed</li>
+                     <li>Complete the payment using any UPI app and Send the payment proof to the provided Telegram
+                        contact.</li>
+                     <li>Wait for payment verification and enrollment confirmation</li>
+                  </ul>
+               </div>
 
-               <div class="payment-content-wrapper">
-                  <div class="payment-instructions">
-                     <p class="instruction-title">Step by step instruction:</p>
-                     <ol class="fancy-list">
-                        <li>Check the course fee mentioned above</li>
-                        <li>Open any UPI app (GPay, PhonePe, Paytm, etc.)</li>
-                        <li>Scan the QR code shown below</li>
-                        <li>Verify the UPI account name</li>
-                        <li>Enter the exact course amount</li>
-                        <li>Complete the payment</li>
-                        <li>Take a screenshot of the success page</li>
-                        <li>Send the screenshot to the given Telegram contact</li>
-                        <li>Wait for payment confirmation</li>
-                     </ol>
-                  </div>
-
-                  <div class="payment-details">
-                     <div class="course-summary">
-                        <h3>Selected Course: <span class="highlight-text">Penquin Glide Bootcamp</span></h3>
-                        <p class="amount-text">Amount: <span class="amount-value">₹399</span></p>
-                     </div>
-
-                     <div class="qr-code-wrapper">
-                        <img src="../images/QR.jpg" alt="Payment QR Code" class="payment-qr-code">
-                        <a href="../images/QR.jpg" onclick="downloadQR(event, this.href)" class="download-qr-btn"><i
-                              class="fas fa-download"></i> Download QR</a>
-                        <p class="upi-id-text">UPI ID: harishkannanjs-1@oksbi</p>
-                     </div>
-
-                     <div class="cta-wrapper">
-                        <a href="https://t.me/harishkannanjs" target="_blank" class="brxe-button btn-telegram">
-                           <i class="fab fa-telegram"></i> Send Payment Proof
-                        </a>
-                     </div>
-
-                     <div class="thank-you-message">
-                        <p>Thank you!</p>
+               <div class="controls-section">
+                  <div class="dropdown-wrapper">
+                     <button class="dropdown-btn" id="paymentBtn">
+                        <span>Payment Method</span>
+                        <div class="dropdown-arrow"></div>
+                     </button>
+                     <div class="dropdown-menu" id="paymentMenu">
+                        <div class="dropdown-option" data-value="upi">UPI Payment</div>
                      </div>
                   </div>
+
+                  <div class="dropdown-wrapper">
+                     <button class="dropdown-btn" id="courseBtn">
+                        <span>Course</span>
+                        <div class="dropdown-arrow"></div>
+                     </button>
+                     <div class="dropdown-menu" id="courseMenu">
+                        <div class="dropdown-option" data-value="penquin-glide" data-price="₹399">
+                           Penquin Glide Bootcamp <span class="badge">8 Weeks</span>
+                        </div>
+                        <div class="dropdown-option" data-value="web-catalyst" data-price="Will be updated soon!">
+                           Web Catalyst Bootcamp <span class="badge">8 Weeks</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="price-box" id="priceDisplay">
+                     Select the course to see the price
+                  </div>
+
+                  <div class="button-grid">
+                     <div class="upi-container">
+                        <span class="upi-text">UPI: harishkannanjs-1@oksbi</span>
+                        <div class="copy-icon" onclick="copyUPI(event)">
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                              stroke-width="2">
+                              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                           </svg>
+                           <div class="copy-tooltip">Copied!</div>
+                        </div>
+                     </div>
+                     <button class="action-btn" onclick="handleQRDownload()">Download QR</button>
+                  </div>
+
+                  <a class="telegram-btn" href="https://t.me/harishkannanjs" target="_blank" rel="noopener noreferrer">
+                     Send to Telegram
+                  </a>
                </div>
             </div>
          </div>
+      </section>
+
+      <script>
+         let selectedPayment = '';
+         let selectedCourse = '';
+         let selectedPrice = '';
+
+         // Dropdown functionality
+         function initDropdown(btnId, menuId) {
+            const btn = document.getElementById(btnId);
+            const menu = document.getElementById(menuId);
+            const options = menu.querySelectorAll('.dropdown-option');
+
+            btn.addEventListener('click', function (e) {
+               e.stopPropagation();
+
+               // Close other dropdowns
+               document.querySelectorAll('.dropdown-menu').forEach(m => {
+                  if (m !== menu) m.classList.remove('show');
+               });
+               document.querySelectorAll('.dropdown-btn').forEach(b => {
+                  if (b !== btn) b.classList.remove('active');
+               });
+
+               menu.classList.toggle('show');
+               btn.classList.toggle('active');
+            });
+
+            options.forEach(option => {
+               option.addEventListener('click', function () {
+                  const value = this.dataset.value;
+                  const price = this.dataset.price;
+                  const text = this.textContent.trim();
+
+                  btn.querySelector('span').textContent = text;
+                  menu.classList.remove('show');
+                  btn.classList.remove('active');
+
+                  if (btnId === 'paymentBtn') {
+                     selectedPayment = value;
+                  } else if (btnId === 'courseBtn') {
+                     selectedCourse = value;
+                     selectedPrice = price;
+                     const priceDisplay = document.getElementById('priceDisplay');
+                     priceDisplay.textContent = `Course Price: ${price}`;
+                     priceDisplay.classList.add('active');
+                  }
+               });
+            });
+         }
+
+         initDropdown('paymentBtn', 'paymentMenu');
+         initDropdown('courseBtn', 'courseMenu');
+
+         // Close dropdowns when clicking outside
+         document.addEventListener('click', function () {
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+               menu.classList.remove('show');
+            });
+            document.querySelectorAll('.dropdown-btn').forEach(btn => {
+               btn.classList.remove('active');
+            });
+         });
+
+         function validateSelection() {
+            if (!selectedPayment || !selectedCourse) {
+               alert('⚠️ Please select both payment method and course first!');
+               return false;
+            }
+            return true;
+         }
+
+         function copyUPI(event) {
+            event.stopPropagation();
+            const upiId = 'harishkannanjs-1@oksbi';
+
+            navigator.clipboard.writeText(upiId).then(() => {
+               const tooltip = event.currentTarget.querySelector('.copy-tooltip');
+               tooltip.classList.add('show');
+
+               setTimeout(() => {
+                  tooltip.classList.remove('show');
+               }, 2000);
+            }).catch(err => {
+               console.error('Failed to copy:', err);
+            });
+         }
+
+         function handleQRDownload() {
+            // 1️⃣ Validate first
+            if (!validateSelection()) {
+               return;
+            }
+
+            // 2️⃣ Proceed with download only if valid
+            const qrImageUrl = "../images/QR.jpg";
+            const fileName = "Tekkit-UPI-QR.jpg";
+
+            const link = document.createElement("a");
+            link.href = qrImageUrl;
+            link.download = fileName;
+
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // 3️⃣ User feedback
+            alert(
+               "📥 Downloading QR code\n\nYou can scan this QR code with any UPI app to complete the payment."
+            );
+         }
+
+
+
+      </script>
+
+      <section id="course-section" class="brxe-section section-gap-below" style="padding-top: var(--padding-150);">
+         <div id="brxe-dolvef" class="brxe-container">
+            <div id="brxe-tymghu" class="brxe-block">
+               <h3 id="brxe-etdvfn" class="brxe-heading subtitle">Flexible Plans</h3>
+               <h2 id="brxe-yhqjnl" class="brxe-heading title-h2">Bootcamp Pricing</h2>
+            </div>
+            <div id="brxe-fzdjft" class="brxe-block">
+               <div id="brxe-jpkxjt" class="brxe-div table-wrapper">
+                  <div id="brxe-rwryjj" class="brxe-div"></div>
+                  <table id="brxe-epcspq" class="brxe-div table">
+                     <thead id="brxe-ofczfk" class="brxe-div">
+                        <tr id="brxe-snnbyh" class="brxe-div">
+                           <th id="brxe-nqlfpd" class="brxe-div">
+                              <div id="brxe-xmbbao" class="brxe-text-basic">Course</div>
+                           </th>
+                           <th id="brxe-lebmpa" class="brxe-div">
+                              <div id="brxe-vnzwae" class="brxe-text-basic">Duration</div>
+                           </th>
+                           <th id="brxe-cumapf" class="brxe-div">
+                              <div id="brxe-pxdmuw" class="brxe-text-basic">Upfront</div>
+                           </th>
+                           <th id="brxe-eruwfq" class="brxe-div">
+                              <div id="brxe-orpxfm" class="brxe-text-basic">Next Cohort</div>
+                           </th>
+                           <th id="brxe-mdifsa" class="brxe-div">
+                              <div id="brxe-ydhqkd" class="brxe-text-basic">Instructor</div>
+                           </th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr class="brxe-mlossk brxe-div" data-brx-loop-start="mlossk">
+                           <td class="brxe-ixgajp brxe-div"><a class="brxe-ismrkk brxe-text-basic"
+                                 href="https://dragotool.shop/tekkit">Penquin Glide Bootcamp</a><a
+                                 href="https://dragotool.shop/tekkit" class="bricks-link-wrapper"><i
+                                    class="fas fa-arrow-up-right-from-square brxe-zsjhou brxe-icon"></i></a></td>
+                           <td class="brxe-jenzfx brxe-div">
+                              <div class="brxe-yswjvd brxe-text-basic">8 Weeks</div>
+                           </td>
+                           <td class="brxe-lrwapu brxe-div">
+                              <div class="brxe-nxxyry brxe-div" data-brx-loop-start="nxxyry">
+                                 <div class="brxe-gyvuhu brxe-text-basic">
+                                    <s style="opacity: 0.6;">₹499</s> ₹399
+                                 </div>
+                              </div>
+
+                              <div class="brx-query-trail" data-query-element-id="nxxyry" data-query-vars="[]"
+                                 data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="0"
+                                 data-end="0">
+                              </div>
+                           </td>
+
+                           <td class="brxe-oeqsby brxe-div">
+                              <div class="brxe-ychpfi brxe-text-basic">January 2026, 6:00 PM – 7:00 PM IST</div>
+                           </td>
+                           <td class="brxe-ukbuce brxe-div">
+                              <div class="brxe-iuwshe brxe-div" data-brx-loop-start="iuwshe">
+                                 <div class="brxe-qovzry brxe-div">
+                                    <div class="brxe-esurfs brxe-text-basic">Harish Kannan J S</div>
+                                 </div>
+                              </div>
+                              <div class="brx-query-trail" data-query-element-id="iuwshe" data-query-vars="[]"
+                                 data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="0"
+                                 data-end="0"></div>
+                           </td>
+                        </tr>
+
+                        <tr class="brx-query-trail" data-query-element-id="mlossk" data-query-vars="{"
+                           post_type":["course"],"post__in":["3031","3033","5110","10477","6878","14251"],"orderby":"post__in","post_status":"publish","paged":1,"posts_per_page":"25"}"=""
+                           data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="1" data-end="5">
+                        </tr>
+
+                     </tbody>
+                     <tbody>
+                        <tr class="brxe-mlossk brxe-div" data-brx-loop-start="mlossk">
+                           <td class="brxe-ixgajp brxe-div"><a class="brxe-ismrkk brxe-text-basic"
+                                 href="/pages/courses/catalyst.html">Web Catalyst Bootcamp</a><a
+                                 href="/pages/courses/catalyst.html" class="bricks-link-wrapper"><i
+                                    class="fas fa-arrow-up-right-from-square brxe-zsjhou brxe-icon"></i></a></td>
+                           <td class="brxe-jenzfx brxe-div">
+                              <div class="brxe-yswjvd brxe-text-basic">8 Weeks</div>
+                           </td>
+                           <td class="brxe-lrwapu brxe-div">
+                              <div class="brxe-nxxyry brxe-div" data-brx-loop-start="nxxyry">
+                                 <div class="brxe-gyvuhu brxe-text-basic">
+                                    <s style="opacity: 0.6;">₹2000</s> ₹0
+                                 </div>
+                              </div>
+
+                              <div class="brx-query-trail" data-query-element-id="nxxyry" data-query-vars="[]"
+                                 data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="0"
+                                 data-end="0">
+                              </div>
+                           </td>
+
+                           <td class="brxe-oeqsby brxe-div">
+                              <div class="brxe-ychpfi brxe-text-basic">December 2025, 6:00 PM – 7:00 PM IST</div>
+                           </td>
+                           <td class="brxe-ukbuce brxe-div">
+                              <div class="brxe-iuwshe brxe-div" data-brx-loop-start="iuwshe">
+                                 <div class="brxe-qovzry brxe-div">
+                                    <div class="brxe-esurfs brxe-text-basic">Harish Kannan J S</div>
+                                 </div>
+                              </div>
+                              <div class="brx-query-trail" data-query-element-id="iuwshe" data-query-vars="[]"
+                                 data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="0"
+                                 data-end="0"></div>
+                           </td>
+                        </tr>
+
+                        <tr class="brx-query-trail" data-query-element-id="mlossk" data-query-vars="{"
+                           post_type":["course"],"post__in":["3031","3033","5110","10477","6878","14251"],"orderby":"post__in","post_status":"publish","paged":1,"posts_per_page":"25"}"=""
+                           data-original-query-vars="[]" data-page="1" data-max-pages="1" data-start="1" data-end="5">
+                        </tr>
+
+                     </tbody>
+                  </table>
+               </div>
+            </div>
+
       </section>
 
       <section id="brxe-fpugab" class="brxe-section">
