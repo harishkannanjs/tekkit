@@ -362,6 +362,55 @@
          background: #ef4444;
          color: #fff;
       }
+
+      #brxe-cllkzn,
+      #brxe-xixjti,
+      #brxe-gxudrc,
+      #brxe-raykdj,
+      #brxe-ckewfo,
+      #brxe-pxmlmg {
+         filter: blur(15px);
+         -webkit-filter: blur(15px);
+         user-select: none;
+         position: relative;
+      }
+
+      .blurred-sections-wrapper {
+         position: relative;
+      }
+
+      .blurred-section-overlay {
+         position: sticky;
+         top: 50vh;
+         transform: translateY(-50%);
+         z-index: 1000;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         gap: 12px;
+         padding: 20px 30px;
+         background: rgba(0, 0, 0, 0.85);
+         border: 2px solid var(--accent, #00dd80);
+         border-radius: 12px;
+         color: var(--text, #fafafa);
+         font-size: 18px;
+         font-weight: 600;
+         text-align: center;
+         backdrop-filter: blur(10px);
+         -webkit-backdrop-filter: blur(10px);
+         pointer-events: none;
+         margin: 40px 0;
+         width: fit-content;
+         margin-left: auto;
+         margin-right: auto;
+         filter: none !important;
+         -webkit-filter: none !important;
+      }
+
+      .blurred-section-overlay i {
+         font-size: 24px;
+         color: var(--accent, #00dd80);
+      }
    </style>
 
    <link rel="stylesheet" id="bricks-child-css" href="css/style.css" media="all">
@@ -764,6 +813,11 @@
             </div>
          </div>
       </section>
+      <div class="blurred-sections-wrapper">
+         <div class="blurred-section-overlay">
+            <i class="fas fa-eye-slash"></i>
+            <span>This section will be revealed soon</span>
+         </div>
       <section id="brxe-cllkzn" class="brxe-section">
          <div id="brxe-nbkshq" class="brxe-container">
             <div id="brxe-kvlcyf" class="brxe-div">
@@ -1454,6 +1508,7 @@
                href="../apply-now.html">Apply Now<i class="fas fa-chevron-right"></i></a>
          </div>
       </section>
+      </div>
    </main>
    <footer id="brx-footer">
       <footer id="brxe-emtyks" class="brxe-section">
