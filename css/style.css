@@ -1,0 +1,188 @@
+/*
+ Theme Name:   Bricks Child Theme
+ Theme URI:    https://bricksbuilder.io/
+ Description:  Use this child theme to extend Bricks.
+ Author:       Bricks
+ Author URI:   https://bricksbuilder.io/
+ Template:     bricks
+ Version:      1.1
+ Text Domain:  bricks
+*/
+
+.section-gap-below {
+    margin-bottom: 40px;
+}
+
+.section-gap-above {
+    margin-top: 40px;
+}
+
+@media (max-width: 1024px) {
+    .section-gap-below {
+        margin-bottom: 30px;
+    }
+
+    .section-gap-above {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-gap-below {
+        margin-bottom: 20px;
+    }
+
+    .section-gap-above {
+        margin-top: 20px;
+    }
+}
+
+/* Payment Process Section Styles */
+.payment-process-card {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--border-radius-16);
+    padding: 40px;
+    margin: 0 auto;
+    max-width: 900px;
+}
+
+.payment-content-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+}
+
+.payment-instructions {
+    flex: 1 1 400px;
+}
+
+.instruction-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--text);
+}
+
+.payment-instructions ol {
+    padding-left: 20px;
+    color: var(--body-text);
+}
+
+.payment-instructions li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.payment-details {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--surface-2);
+    padding: 30px;
+    border-radius: var(--border-radius-16);
+    border: 1px solid var(--border);
+}
+
+.course-summary h3 {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.highlight-text {
+    color: var(--accent);
+}
+
+.amount-text {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.payment-qr-code {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border);
+}
+
+.download-qr-btn {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: var(--body-text);
+    text-decoration: none;
+    padding: 6px 14px;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    /* simple rounded */
+    margin-bottom: 15px;
+    background-color: transparent;
+    transition: all 0.2s ease;
+}
+
+.download-qr-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+    background-color: var(--surface);
+}
+
+.upi-id-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: var(--body-text);
+    margin-bottom: 20px;
+    background: var(--surface);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.btn-telegram {
+    background-color: #229ED9;
+    /* Telegram Blue */
+    color: white !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+
+    /* Standard button styles */
+    border-radius: var(--border-radius-full);
+    font-size: 16px;
+    font-weight: 600;
+    padding-top: var(--padding-10);
+    padding-right: var(--padding-25);
+    padding-bottom: var(--padding-10);
+    padding-left: var(--padding-25);
+    border: none;
+}
+
+.btn-telegram:hover {
+    background-color: #1b7db5;
+}
+
+.thank-you-message {
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--accent-green);
+}
+
+@media (max-width: 768px) {
+    .payment-process-card {
+        padding: 20px;
+    }
+
+    .payment-content-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .payment-details {
+        width: 100%;
+    }
+}
