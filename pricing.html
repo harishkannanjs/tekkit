@@ -339,12 +339,12 @@
       /* ---------------- Container ---------------- */
 
       .payment-container {
-         background: #1a1a1a;
+         background: var(--surface-2);
          border-radius: 28px;
          padding: 48px;
          max-width: 1200px;
          width: 100%;
-         border: 1px solid #2a2a2a;
+         border: 1px solid var(--border);
          box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
       }
 
@@ -360,10 +360,10 @@
       /* ---------------- Instructions ---------------- */
 
       .instructions-section {
-         background: #222222;
+         background: var(--surface-3);
          border-radius: 18px;
          padding: 32px;
-         border: 1px solid #2d2d2d;
+         border: 1px solid var(--border);
          height: 100%;
          display: flex;
          flex-direction: column;
@@ -373,7 +373,7 @@
          font-size: 26px;
          font-weight: 700;
          margin-bottom: 24px;
-         color: #00ffaa;
+         color: var(--accent);
          letter-spacing: -0.5px;
       }
 
@@ -391,7 +391,7 @@
          padding-left: 28px;
          margin-bottom: 18px;
          line-height: 1.7;
-         color: #b4b4b4;
+         color: var(--body-text);
          position: relative;
          font-size: 25px;
       }
@@ -400,7 +400,7 @@
          content: '•';
          position: absolute;
          left: 10px;
-         color: #00ffaa;
+         color: var(--accent);
          font-size: 24px;
       }
 
@@ -421,10 +421,10 @@
       .dropdown-btn {
          width: 100%;
          padding: 18px 24px;
-         background: #222222;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-3);
+         border: 1px solid var(--border);
          border-radius: 14px;
-         color: #ffffff;
+         color: var(--text);
          font-size: 17px;
          font-weight: 500;
          cursor: pointer;
@@ -436,8 +436,8 @@
 
       .dropdown-btn:hover,
       .dropdown-btn.active {
-         background: #2a2a2a;
-         border-color: #00ffaa;
+         background: var(--surface);
+         border-color: var(--accent);
       }
 
       .dropdown-arrow {
@@ -445,7 +445,7 @@
          height: 0;
          border-left: 6px solid transparent;
          border-right: 6px solid transparent;
-         border-top: 6px solid #00ffaa;
+         border-top: 6px solid var(--accent);
          transition: transform 0.2s ease;
       }
 
@@ -458,8 +458,8 @@
          top: calc(100% + 10px);
          left: 0;
          right: 0;
-         background: #222222;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-3);
+         border: 1px solid var(--border);
          border-radius: 14px;
          overflow: hidden;
          display: none;
@@ -476,30 +476,30 @@
          padding: 16px 24px;
          cursor: pointer;
          transition: background 0.15s ease;
-         color: #b4b4b4;
+         color: var(--body-text);
          font-size: 16px;
       }
 
       .dropdown-option:hover {
-         background: #2a2a2a;
-         color: #00ffaa;
+         background: var(--surface);
+         color: var(--accent);
       }
 
       /* ---------------- Price Box ---------------- */
 
       .price-box {
          padding: 20px 24px;
-         background: #222222;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-3);
+         border: 1px solid var(--border);
          border-radius: 14px;
          text-align: center;
-         color: #888888;
+         color: var(--body-text);
          font-style: italic;
          font-size: 16px;
       }
 
       .price-box.active {
-         color: #00ffaa;
+         color: var(--accent);
          font-style: normal;
          font-weight: 700;
          font-size: 22px;
@@ -508,8 +508,8 @@
       /* ---------------- QR PAYMENT CARD ---------------- */
 
       .qr-payment-card {
-         background: #222222;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-3);
+         border: 1px solid var(--border);
          border-radius: 18px;
          padding: 24px;
          display: flex;
@@ -530,7 +530,7 @@
          width: 1440px;
          max-width: 100%;
          border-radius: 16px;
-         border: 1px solid #333;
+         border: 1px solid var(--border);
          background: #fff;
       }
 
@@ -550,8 +550,8 @@
          align-items: center;
          gap: 12px;
          padding: 16px;
-         background: #1a1a1a;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-2);
+         border: 1px solid var(--border);
          border-radius: 12px;
       }
 
@@ -559,7 +559,7 @@
          flex: 1;
          font-size: 15px;
          font-weight: 600;
-         color: #ffffff;
+         color: var(--text);
          white-space: nowrap;
          overflow: hidden;
          text-overflow: ellipsis;
@@ -573,8 +573,8 @@
          display: flex;
          align-items: center;
          justify-content: center;
-         background: #262626;
-         border: 1px solid #333;
+         background: var(--surface);
+         border: 1px solid var(--border);
          border-radius: 8px;
          cursor: pointer;
          position: relative;
@@ -589,7 +589,7 @@
       .copy-icon svg {
          width: 18px;
          height: 18px;
-         stroke: #00ffaa;
+         stroke: var(--accent);
       }
 
       /* Tooltip */
@@ -598,7 +598,7 @@
          position: absolute;
          bottom: calc(100% + 8px);
          right: 0;
-         background: #00ffaa;
+         background: var(--accent);
          color: #0a0a0a;
          padding: 6px 10px;
          border-radius: 6px;
@@ -617,10 +617,10 @@
 
       .action-btn {
          padding: 16px;
-         background: #1a1a1a;
-         border: 1px solid #3a3a3a;
+         background: var(--surface-2);
+         border: 1px solid var(--border);
          border-radius: 12px;
-         color: #ffffff;
+         color: var(--text);
          font-size: 15px;
          font-weight: 600;
          cursor: pointer;
@@ -629,9 +629,9 @@
       }
 
       .action-btn:hover {
-         background: #2a2a2a;
-         border-color: #00ffaa;
-         color: #00ffaa;
+         background: var(--surface);
+         border-color: var(--accent);
+         color: var(--accent);
       }
 
       /* ---------------- Telegram CTA ---------------- */
@@ -661,7 +661,7 @@
          display: inline-block;
          padding: 4px 12px;
          background: rgba(0, 255, 170, 0.1);
-         color: #00ffaa;
+         color: var(--accent);
          border-radius: 6px;
          font-size: 13px;
          font-weight: 600;
@@ -1327,7 +1327,7 @@
                            <td class="brxe-lrwapu brxe-div">
                               <div class="brxe-nxxyry brxe-div" data-brx-loop-start="nxxyry">
                                  <div class="brxe-gyvuhu brxe-text-basic">
-                                   ₹999
+                                    ₹999
                                  </div>
                               </div>
 
@@ -1518,8 +1518,8 @@
                </div>
                <div id="brxe-byhlqf" class="brxe-div">
                   <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
-                        class="brxe-text-link footer-menu-item" href="Vibe_Coding_Mastery.html">Web Vibe_Coding_Mastery
-                        Bootcamp</a></div>
+                        class="brxe-text-link footer-menu-item" href="Vibe_Coding_Mastery.html">Vibe Coding Mastery</a>
+                  </div>
                   <div id="brxe-qyomrx" class="brxe-div footer-menu"><a id="brxe-zavutn"
                         class="brxe-text-link footer-menu-item" href="contact.html">Contact</a></div>
                </div>
