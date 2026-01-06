@@ -10,6 +10,21 @@
       img:is([sizes="auto" i], [sizes^="auto," i]) {
          contain-intrinsic-size: 3000px 1500px
       }
+
+      /* Desktop Footer Link Alignment */
+      @media (min-width: 768px) {
+         #brxe-byhlqf {
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-end !important;
+            gap: 15px !important;
+         }
+
+         .footer-links-top {
+            display: flex !important;
+            gap: 40px !important;
+         }
+      }
    </style>
    <link rel="preload" href="fonts/inter-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
    <link rel="preload" href="fonts/jetbrains-mono-400-normal.woff2" as="font" type="font/woff2" crossorigin="anonymous">
@@ -682,11 +697,11 @@
                <div class="brxe-wozujy brxe-div" data-brx-loop-start="rjmhoj">
                   <div class="brxe-prlplr brxe-text-basic">Next Cohort:</div>
                   <div class="brxe-uqdkec brxe-div">
-                     <div class="brxe-nipmrw brxe-text-basic background-blur cohort-date-time">Announced Soon</div>
+                     <div class="brxe-nipmrw brxe-text-basic background-blur cohort-date-time">Coming Soon</div>
                      <div class="brxe-vadmrz brxe-divider vertical">
                         <div class="line"></div>
                      </div>
-                     <div class="brxe-njmkqr brxe-text-basic background-blur cohort-date-time">Announced Soon
+                     <div class="brxe-njmkqr brxe-text-basic background-blur cohort-date-time">Coming Soon
                      </div>
                   </div>
                </div>
@@ -1618,11 +1633,14 @@
                            class="fab fa-discord brxe-icon footer-social-icon"></i></a></div>
                </div>
                <div id="brxe-byhlqf" class="brxe-div">
-                  <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
-                        class="brxe-text-link footer-menu-item" href="https://dragotool.shop/tekkit">LABHTP Legacy</a>
+                  <div class="footer-links-top">
+                     <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
+                           class="brxe-text-link footer-menu-item" href="https://dragotool.shop/tekkit">LABHTP
+                           Legacy</a>
+                     </div>
+                     <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
+                           class="brxe-text-link footer-menu-item" href="#">Vibe Coding Mastery</a></div>
                   </div>
-                  <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
-                        class="brxe-text-link footer-menu-item" href="#">Vibe Coding Mastery</a></div>
                   <div id="brxe-qyomrx" class="brxe-div footer-menu"><a id="brxe-zavutn"
                         class="brxe-text-link footer-menu-item" href="contact.html">Contact</a></div>
                </div>
