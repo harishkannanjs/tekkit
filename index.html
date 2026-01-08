@@ -506,22 +506,6 @@
                padding-bottom: 350px !important;
             }
          }
-
-         /* Desktop Footer Link Alignment */
-         @media (min-width: 768px) {
-            #brxe-byhlqf {
-               display: flex !important;
-               flex-direction: column !important;
-               align-items: flex-end !important;
-               gap: 15px !important;
-               align-items: right !important;
-            }
-
-            .footer-links-top {
-               display: flex !important;
-               gap: 40px !important;
-            }
-         }
    </style>
    <style>
       .hidden {
@@ -1024,7 +1008,6 @@
          #brxe-qyomrx {
             text-align: center;
             width: 100%;
-
          }
 
          #brxe-yroknf {
@@ -1130,26 +1113,6 @@
          .brxe-div[class*="card"] {
             width: 100% !important;
             max-width: 380px;
-         }
-      }
-
-      /* Desktop Footer Link Alignment */
-      @media (min-width: 768px) {
-         .brxe-div[class*="card"] {
-            max-width: 380px;
-         }
-
-         #brxe-byhlqf {
-            display: flex !important;
-            flex-direction: column !important;
-            align-items: flex-end !important;
-            gap: 15px !important;
-
-         }
-
-         .footer-links-top {
-            display: flex !important;
-            gap: 40px !important;
          }
       }
 
@@ -1570,7 +1533,7 @@
                         </div>
                      </div>
                      <div class="brxe-cxcwhx brxe-div">
-                        <div class="brxe-nkmikk brxe-text-basic card-course-date-time">Coming Soon</div>
+                        <div class="brxe-nkmikk brxe-text-basic card-course-date-time">Announced Soon</div>
                         <!--    <div class="brxe-nvdban brxe-divider vertical">
                            <div class="line"></div>
                         </div>
@@ -1792,7 +1755,28 @@
                            class="fab fa-discord brxe-icon footer-social-icon"></i></a></div>
                </div>
                <div id="brxe-byhlqf" class="brxe-div">
-                  <div class="footer-links-top">
+                  <style>
+                     #brxe-byhlqf {
+                        flex-direction: column;
+                        align-items: flex-end;
+                        align-self: flex-end;
+                        width: fit-content;
+                        gap: 15px;
+                     }
+
+                     #footer-links-group {
+                        display: flex;
+                        gap: 32px;
+                     }
+
+                     @media (max-width: 768px) {
+                        #footer-links-group {
+                           flex-direction: column;
+                           gap: 20px;
+                        }
+                     }
+                  </style>
+                  <div id="footer-links-group">
                      <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
                            class="brxe-text-link footer-menu-item" href="https://dragotool.shop/tekkit">LABHTP
                            Legacy</a>

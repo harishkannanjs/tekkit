@@ -486,21 +486,6 @@
                 margin-bottom: 8px;
             }
         }
-
-        /* Desktop Footer Link Alignment */
-        @media (min-width: 768px) {
-            #brxe-byhlqf {
-                display: flex !important;
-                flex-direction: column !important;
-                align-items: flex-end !important;
-                gap: 15px !important;
-            }
-
-            .footer-links-top {
-                display: flex !important;
-                gap: 40px !important;
-            }
-        }
     </style>
     <!-- Google tag (gtag.js) snippet added by Site Kit -->
     <!-- Google Analytics snippet added by Site Kit -->
@@ -864,7 +849,29 @@
                             </div>
                         </div>
                         <div id="brxe-byhlqf" class="brxe-div">
-                            <div class="footer-links-top">
+                            <style>
+                                #brxe-byhlqf {
+                                    display: flex;
+                                    flex-direction: column;
+                                    align-items: flex-end;
+                                    align-self: flex-end;
+                                    width: fit-content;
+                                    gap: 15px;
+                                }
+
+                                #footer-links-group {
+                                    display: flex;
+                                    gap: 32px;
+                                }
+
+                                @media (max-width: 768px) {
+                                    #footer-links-group {
+                                        flex-direction: column;
+                                        gap: 20px;
+                                    }
+                                }
+                            </style>
+                            <div id="footer-links-group">
                                 <div id="brxe-ujvxcg" class="brxe-div footer-menu"><a id="brxe-ygvrmp"
                                         class="brxe-text-link footer-menu-item"
                                         href="https://dragotool.shop/tekkit">LABHTP
