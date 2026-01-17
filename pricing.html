@@ -538,9 +538,9 @@
 
       .qr-actions {
          display: grid;
-         grid-template-columns: 1fr 1fr;
+         grid-template-columns: 1fr auto;
          gap: 12px;
-         align-items: center;
+         align-items: stretch;
       }
 
       /* ---------------- UPI Container ---------------- */
@@ -616,16 +616,19 @@
       /* ---------------- Download Button ---------------- */
 
       .action-btn {
-         padding: 16px;
+         padding: 0 20px;
          background: var(--surface-2);
          border: 1px solid var(--border);
          border-radius: 12px;
          color: var(--text);
-         font-size: 20px;
+         font-size: 22px;
          font-weight: 600;
          cursor: pointer;
          transition: all 0.2s ease;
          text-align: center;
+         display: flex;
+         align-items: center;
+         justify-content: center;
       }
 
       .action-btn:hover {
@@ -1118,7 +1121,7 @@
 
                         <!-- Download QR -->
                         <button class="action-btn" onclick="handleQRDownload()">
-                           Download QR
+                           <i class="fa-solid fa-download"></i>
                         </button>
 
                      </div>
@@ -1126,7 +1129,7 @@
 
 
                   <a class="telegram-btn" href="https://t.me/harishkannanjs" target="_blank" rel="noopener noreferrer">
-                     Send to Telegram
+                     Submit the Proof
                   </a>
                </div>
             </div>
@@ -1322,7 +1325,7 @@
                      <tbody>
                         <tr class="brxe-mlossk brxe-div" data-brx-loop-start="mlossk">
                            <td class="brxe-ixgajp brxe-div"><a class="brxe-ismrkk brxe-text-basic"
-                                 href="Vibe_Coding_Mastery.html">Vibe_Coding_Mastery
+                                 href="Vibe_Coding_Mastery.html">Vibe Coding Mastery
                                  Legacy</a><a href="Vibe_Coding_Mastery.html" class="bricks-link-wrapper"><i
                                     class="fas fa-arrow-up-right-from-square brxe-zsjhou brxe-icon"></i></a></td>
                            <td class="brxe-jenzfx brxe-div">
@@ -1331,7 +1334,7 @@
                            <td class="brxe-lrwapu brxe-div">
                               <div class="brxe-nxxyry brxe-div" data-brx-loop-start="nxxyry">
                                  <div class="brxe-gyvuhu brxe-text-basic">
-                                    <!--<s style="opacity: 0.6;">₹2000</s>--> Announced Soon
+                                    <!--<s style="opacity: 0.6;">₹2000</s>--> To be announced
                                  </div>
                               </div>
 
@@ -1342,7 +1345,7 @@
                            </td>
 
                            <td class="brxe-oeqsby brxe-div">
-                              <div class="brxe-ychpfi brxe-text-basic">Announced Soon</div>
+                              <div class="brxe-ychpfi brxe-text-basic">To be announced</div>
                            </td>
                            <td class="brxe-ukbuce brxe-div">
                               <div class="brxe-iuwshe brxe-div" data-brx-loop-start="iuwshe">

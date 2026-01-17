@@ -18,6 +18,7 @@
    <link rel="dns-prefetch" href="//client.crisp.chat">
    <link rel="dns-prefetch" href="//www.googletagmanager.com">
 
+
    <style>
       /* --- Fix for "Tech Skills Made Simple" Section Overlay --- */
 
@@ -619,6 +620,30 @@
          .section-gap-above {
             margin-top: 30px;
          }
+      }
+
+      /* Course Card Grain Effect */
+      .brxe-etlrrh.brxe-image.tag {
+         position: relative;
+         overflow: hidden;
+      }
+
+      .brxe-etlrrh.brxe-image.tag::before {
+         content: '';
+         position: absolute;
+         inset: 0;
+         z-index: 1;
+         background: linear-gradient(135deg, rgba(166, 132, 255, 0.2), rgba(139, 92, 246, 0.3));
+         filter: url(#grainy);
+         border-radius: inherit;
+      }
+
+      .brxe-etlrrh.brxe-image.tag img {
+         position: relative;
+         z-index: 2;
+         display: block;
+         width: 100%;
+         height: auto;
       }
 
       /* ============================================
@@ -1318,12 +1343,27 @@
                width: 150px !important;
             }
          }
+
+      }
+
+      .course-card-grain {
+         filter: url(#grainy);
       }
    </style>
 </head>
 
 <body
    class="home wp-singular page-template-default page page-id-2 wp-theme-bricks wp-child-theme-bricks-child brx-body bricks-is-frontend wp-embed-responsive">
+   <svg style="display: none;">
+      <filter id="grainy">
+         <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" result="noise" />
+         <feColorMatrix type="saturate" values="0" in="noise" result="desaturatedNoise" />
+         <feComponentTransfer in="desaturatedNoise" result="alphaNoise">
+            <feFuncA type="table" tableValues="0 0 0.1 0" />
+         </feComponentTransfer>
+         <feBlend in="alphaNoise" in2="SourceGraphic" mode="overlay" />
+      </filter>
+   </svg>
    <noscript>
       <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5SZKS4RW" height="0" width="0"
          style="display:none;visibility:hidden"></iframe>
@@ -1476,10 +1516,9 @@
                   <div class="brxe-bnwojo brxe-div">
                      <div class="brxe-blxdkz brxe-div">
                         <a class="brxe-etlrrh brxe-image tag" href="https://dragotool.shop/tekkit"><img width="720"
-                              height="400" src="images/LABHTP_Icon-removebg.png" class="css-filter size-full" alt=""
-                              srcset="images/LABHTP_Icon-removebg.png" ""=""
-                              data-img-light="images/LABHTP_Icon-removebg.png"
-                              data-img-dark="images/LABHTP_Icon-removebg.png" decoding="async"></a>
+                              height="400" src="images/LABHTP_Icon.png" class="css-filter size-full course-card-grain"
+                              alt="" srcset="images/LABHTP_Icon.png" ""="" data-img-light="images/LABHTP_Icon.png"
+                              data-img-dark="images/LABHTP_Icon.png" decoding="async"></a>
                         <div class="brxe-jtsmaz brxe-div">
                            <h3 class="brxe-mbratg brxe-heading title-h3"><a href="https://dragotool.shop/tekkit">LABHTP
                                  Legacy</a></h3>
@@ -1522,11 +1561,11 @@
 
                      <div class="brxe-blxdkz brxe-div">
                         <a class="brxe-etlrrh brxe-image tag" href="Vibe_Coding_Mastery.html"><img width="720"
-                              height="400" src="images/Vibe_Coding_Mastery_Icon-removebg.png"
-                              class="css-filter size-full" alt=""
-                              srcset="images/Vibe_Coding_Mastery_Icon-removebg.png" ""=""
-                              data-img-light="images/Vibe_Coding_Mastery_Icon-removebg.png"
-                              data-img-dark="images/Vibe_Coding_Mastery_Icon-removebg.png" decoding="async"></a>
+                              height="400" src="images/Vibe_Coding_Mastery_Icon.png"
+                              class="css-filter size-full course-card-grain" alt=""
+                              srcset="images/Vibe_Coding_Mastery_Icon.png" ""=""
+                              data-img-light="images/Vibe_Coding_Mastery_Icon.png"
+                              data-img-dark="images/Vibe_Coding_Mastery_Icon.png" decoding="async"></a>
                         <div class="brxe-jtsmaz brxe-div">
                            <h3 class="brxe-mbratg brxe-heading title-h3"><a href="Vibe_Coding_Mastery.html">Vibe Coding
                                  Mastery
@@ -1535,7 +1574,7 @@
                         </div>
                      </div>
                      <div class="brxe-cxcwhx brxe-div">
-                        <div class="brxe-nkmikk brxe-text-basic card-course-date-time">Announced Soon</div>
+                        <div class="brxe-nkmikk brxe-text-basic card-course-date-time">To be announced</div>
                         <!--    <div class="brxe-nvdban brxe-divider vertical">
                            <div class="line"></div>
                         </div>
